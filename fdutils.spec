@@ -1,17 +1,20 @@
 Summary:	Floppy utilities
 Summary(pl):	Narzêdzia do dyskietek
 Name:		fdutils
-Version:	5.3
-Release:	2
+Version:	5.4
+Release:	1
+License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
-License:	GPL
-URL:		http://fdutils.linux.lu
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
+Patch0:		%{name}-manpages.patch
+Patch1:		%{name}-info.patch
 ExclusiveArch:	%{ix86}
 BuildRequires:	flex
 BuildRequires:	tetex
+BuildRequires:	texinfo
+URL:		http://fdutils.linux.lu/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,6 +27,8 @@ dysków. Dyskietki mog± byæ formatowane do 1992KB.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure
@@ -31,7 +36,7 @@ dysków. Dyskietki mog± byæ formatowane do 1992KB.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_infodir}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_mandir}/man1,%{_infodir}}
 
 install src/MAKEFLOPPIES  $RPM_BUILD_ROOT%{_bindir} 
 install src/convertfdprm  $RPM_BUILD_ROOT%{_bindir}
@@ -44,6 +49,8 @@ install src/floppymeter   $RPM_BUILD_ROOT%{_bindir}
 install src/getfdprm      $RPM_BUILD_ROOT%{_bindir}
 install src/superformat   $RPM_BUILD_ROOT%{_bindir}
 install src/xdfcopy       $RPM_BUILD_ROOT%{_bindir}
+
+install src/mediaprm $RPM_BUILD_ROOT%{_sysconfdir}
 
 install doc/fdutils.info* $RPM_BUILD_ROOT%{_infodir}
 install doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1/
@@ -63,6 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz doc/*gz doc/FAQ.html
+%config %{_sysconfdir}/mediaprm
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*.info*
