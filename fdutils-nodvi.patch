@@ -1,0 +1,11 @@
+--- fdutils-5.4/doc/Makefile.in.dist	Mon Feb 19 15:24:38 2001
++++ fdutils-5.4/doc/Makefile.in	Mon Feb 19 15:25:06 2001
+@@ -36,7 +36,7 @@
+ CPPFLAGS    = @CPPFLAGS@
+ CFLAGS      = @CFLAGS@
+ 
+-all: info dvi
++all: info
+ 
+ TEXISRC = \
+ acronyms.texi       fdrawcmd.texi       ioctl.texi          superformat.texi \
