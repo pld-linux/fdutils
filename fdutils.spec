@@ -2,7 +2,7 @@ Summary:	Floppy utilities
 Summary(pl):	Narzêdzia do dyskietek
 Name:		fdutils
 Version:	5.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -31,7 +31,7 @@ dysków. Dyskietki mog± byæ formatowane do 1992KB.
 %patch1 -p1
 
 %build
-%configure
+%configure2_13
 %{__make}
 
 %install
