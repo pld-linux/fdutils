@@ -1,0 +1,17 @@
+diff -Nru fdutils-5.4/doc/fdutils.texi fdutils-5.4.new/doc/fdutils.texi
+--- fdutils-5.4/doc/fdutils.texi	Fri Jun  2 22:27:39 2000
++++ fdutils-5.4.new/doc/fdutils.texi	Sat Feb 10 06:31:40 2001
+@@ -21,9 +21,10 @@
+ 
+ @ifinfo
+ @format
+-START-INFO-DIR-ENTRY
+-* Fdutils: (fdutils).        Fdutils: Linux' floppy utilities
+-END-INFO-DIR-ENTRY
++@dircategory Miscellaneous:
++@direntry
++* Fdutils: (fdutils).			Fdutils: Linux' floppy utilities
++@end direntry
+ @end format
+ @end ifinfo
+ 
