@@ -40,7 +40,7 @@ mv -f doc/{,fd}diskd.1
 
 %build
 install /usr/share/automake/config.* .
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure
 %{__make}
