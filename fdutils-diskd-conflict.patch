@@ -1,0 +1,162 @@
+diff -Nur fdutils-5.4.orig/doc/Makefile.in fdutils-5.4/doc/Makefile.in
+--- fdutils-5.4.orig/doc/Makefile.in	Thu Aug 22 22:05:34 2002
++++ fdutils-5.4/doc/Makefile.in	Thu Aug 22 22:11:22 2002
+@@ -42,7 +42,7 @@
+ acronyms.texi       fdrawcmd.texi       ioctl.texi          superformat.texi \
+ autodetect.texi     fdutils.texi        lilo.texi           tips.texi \
+ commands.texi       floppycontrol.texi  location.texi       utilities.texi \
+-diskd.texi          floppymeter.texi    makefloppies.texi   xdfcopy.texi \
++fddiskd.texi          floppymeter.texi    makefloppies.texi   xdfcopy.texi \
+ diskseekd.texi      formatlist.texi     moredata.texi \
+ fdmount.texi        getfdprm.texi       setfdprm.texi
+ 
+diff -Nur fdutils-5.4.orig/doc/cmdname fdutils-5.4/doc/cmdname
+--- fdutils-5.4.orig/doc/cmdname	Sat Apr 19 18:28:16 1997
++++ fdutils-5.4/doc/cmdname	Thu Aug 22 22:10:14 2002
+@@ -1,4 +1,4 @@
+-diskd - disk daemon; wait for disk to be inserted
++fddiskd - disk daemon; wait for disk to be inserted
+ diskseek, diskseekd - disk seek daemon; simulates Messy Dos' drive cleaning effect
+ fd - floppy disk device
+ fdmount - Floppy disk mount utility
+diff -Nur fdutils-5.4.orig/doc/commands.texi fdutils-5.4/doc/commands.texi
+--- fdutils-5.4.orig/doc/commands.texi	Thu Apr 24 23:38:57 1997
++++ fdutils-5.4/doc/commands.texi	Thu Aug 22 22:11:31 2002
+@@ -7,7 +7,7 @@
+ line parameters that each of them accepts.
+ 
+ @menu
+-* diskd::             detect a disk change and execute a command
++* fddiskd::           detect a disk change and execute a command
+ * diskseekd::         seeks the drive from time to time to shake of the
+                       dust
+ * fdmount::           automatically mounts and unmounts floppy disks
+@@ -22,7 +22,7 @@
+ * xdfcopy::           copies and formats XDF disks
+ @end menu
+ 
+-@include diskd.texi
++@include fddiskd.texi
+ @include diskseekd.texi
+ @include fdmount.texi
+ @include fdrawcmd.texi
+diff -Nur fdutils-5.4.orig/doc/diskd.1 fdutils-5.4/doc/diskd.1
+--- fdutils-5.4.orig/doc/diskd.1	Fri Jun  2 22:28:27 2000
++++ fdutils-5.4/doc/diskd.1	Thu Aug 22 22:09:52 2002
+@@ -1,6 +1,6 @@
+-.TH diskd 1 "02jun00" fdutils-5.4
++.TH fddiskd 1 "02jun00" fdutils-5.4
+ .SH Name
+-diskd - disk daemon; wait for disk to be inserted
++fddiskd - disk daemon; wait for disk to be inserted
+ '\" t
+ .de TQ
+ .br
+@@ -70,15 +70,15 @@
+ the info version certain examples are difficult to read due to the
+ quoting conventions used in info.
+ .SH Description
+-.iX "p diskd"
++.iX "p fddiskd"
+ .PP
+-The diskd command has the following syntax:
++The fddiskd command has the following syntax:
+ .PP
+  
+ .nf
+ .ft 3
+ .in +0.3i
+-\&\fR\&\f(CWdiskd [\fR\&\f(CW-d \fIdrive\fR\&\f(CW] [\fR\&\f(CW-i \fImsdosfiles\fR\&\f(CW] [\fR\&\f(CW-e \fIcommand\fR\&\f(CW]
++\&\fR\&\f(CWfddiskd [\fR\&\f(CW-d \fIdrive\fR\&\f(CW] [\fR\&\f(CW-i \fImsdosfiles\fR\&\f(CW] [\fR\&\f(CW-e \fIcommand\fR\&\f(CW]
+ .fi
+ .in -0.3i
+ .ft R
+diff -Nur fdutils-5.4.orig/doc/diskd.texi fdutils-5.4/doc/diskd.texi
+--- fdutils-5.4.orig/doc/diskd.texi	Sat Mar  1 17:29:12 1997
++++ fdutils-5.4/doc/diskd.texi	Thu Aug 22 22:10:31 2002
+@@ -1,11 +1,11 @@
+-@node diskd, diskseekd, Commands, Commands
+-@section diskd
+-@pindex diskd
++@node fddiskd, diskseekd, Commands, Commands
++@section fddiskd
++@pindex fddiskd
+ 
+-The diskd command has the following syntax:
++The fddiskd command has the following syntax:
+ 
+ @example
+-@code{diskd} [@code{-d} @var{drive}] [@code{-i} @var{msdosfiles}] [@code{-e} @var{command}]
++@code{fddiskd} [@code{-d} @var{drive}] [@code{-i} @var{msdosfiles}] [@code{-e} @var{command}]
+ @end example
+ 
+ Diskd waits for a disk to be inserted into a given @var{drive}, and then
+diff -Nur fdutils-5.4.orig/doc/diskseekd.texi fdutils-5.4/doc/diskseekd.texi
+--- fdutils-5.4.orig/doc/diskseekd.texi	Sat Mar  1 17:29:47 1997
++++ fdutils-5.4/doc/diskseekd.texi	Thu Aug 22 22:11:43 2002
+@@ -1,4 +1,4 @@
+-@node diskseekd, fdmount, diskd, Commands
++@node diskseekd, fdmount, fddiskd, Commands
+ @section diskseekd
+ @pindex diskseekd
+ @cindex dust (shaking it off from a drive)
+diff -Nur fdutils-5.4.orig/doc/mkmanpages fdutils-5.4/doc/mkmanpages
+--- fdutils-5.4.orig/doc/mkmanpages	Fri Jun  2 22:28:21 2000
++++ fdutils-5.4/doc/mkmanpages	Thu Aug 22 22:11:03 2002
+@@ -40,7 +40,7 @@
+ }
+ 
+ 
+-extract diskd
++extract fddiskd
+ extract diskseekd
+ extract fdmount
+ extract fdrawcmd
+diff -Nur fdutils-5.4.orig/src/Makefile.in fdutils-5.4/src/Makefile.in
+--- fdutils-5.4.orig/src/Makefile.in	Sat May 27 18:41:54 2000
++++ fdutils-5.4/src/Makefile.in	Thu Aug 22 22:12:24 2002
+@@ -39,7 +39,7 @@
+ 
+ OBJECTS=enh_options.o floppycontrol.o superformat.o
+ SOURCES=enh_options.c floppycontrol.o superformat.c
+-MANPAGES1=diskd.1 diskseekd.1 fdrawcmd.1 floppycontrol.1 getfdprm.1  \
++MANPAGES1=fddiskd.1 diskseekd.1 fdrawcmd.1 floppycontrol.1 getfdprm.1  \
+ makefloppies.1 superformat.1 xdfcopy.1 fdmount.1
+ MANPAGES4=fd.4
+ MANPAGES8=setfdprm.8
+@@ -56,7 +56,7 @@
+ 
+ 
+ all: floppycontrol getfdprm setfdprm fdrawcmd \
+-superformat xdfcopy fdmount diskseekd diskd floppymeter convertfdprm
++superformat xdfcopy fdmount diskseekd fddiskd floppymeter convertfdprm
+ 
+ 
+ LIBFILES=lex.mediaprm.o lex.driveprm.o mediaprm.o driveprm.o parse.o \
+@@ -79,7 +79,7 @@
+ floppycontrol: floppycontrol.o libfdutils.a
+ 	${CC} $(LDFLAGS) -o $@ $< $(LIBS)
+ 
+-diskd: diskd.o  libfdutils.a
++fddiskd: diskd.o  libfdutils.a
+ 	${CC} $(LDFLAGS) -o $@ $< $(LIBS)
+ 
+ diskseekd: diskseekd.o  libfdutils.a
+@@ -107,7 +107,7 @@
+ 	-rm -f *~ *.orig *.o a.out *.a lex.*.c core 2>/dev/null
+ 
+ spotless:	clean
+-	-rm -f floppycontrol superformat getfdprm fdrawcmd diskseekd diskd \
++	-rm -f floppycontrol superformat getfdprm fdrawcmd diskseekd fddiskd \
+ 	diskseek diskd_old setfdprm xdfcopy fdmount 2>/dev/null
+ 
+ install: install-bin install-conf
+@@ -122,7 +122,7 @@
+ 
+ install-bin: all
+ 	$(INSTALL) -c -m $(PERM) -o $(UID) -g $(GID) $(srcdir)/MAKEFLOPPIES $(bindir)
+-	$(INSTALL) -c -s -m $(PERM) -o $(UID) -g $(GID) diskd $(bindir)
++	$(INSTALL) -c -s -m $(PERM) -o $(UID) -g $(GID) fddiskd $(bindir)
+ 	$(INSTALL) -c -s -m $(PERM) -o $(UID) -g $(GID) diskseekd $(bindir)
+ 	$(INSTALL) -c -s -m $(PERM) -o $(UID) -g $(GID) floppycontrol $(bindir)
+ 	$(INSTALL) -c -s -m $(PERM) -o $(UID) -g $(GID) floppymeter $(bindir)

@@ -3,19 +3,20 @@ Summary(pl):	NarzÍdzia do dyskietek
 Summary(zh_CN):	»Ì≈Ã«˝∂Øµ˜ ‘∫Õ≈‰÷√π§æﬂ
 Name:		fdutils
 Version:	5.4
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/System
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
 Patch0:		%{name}-manpages.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-ac25x.patch
+Patch3:		%{name}-diskd-conflict.patch
+URL:		http://fdutils.linux.lu/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	tetex
 BuildRequires:	texinfo
-URL:		http://fdutils.linux.lu/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,6 +32,9 @@ dyskÛw. Dyskietki mog± byÊ formatowane do 1992KB.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+mv -f doc/{,fd}diskd.texi
+mv -f doc/{,fd}diskd.1
 
 %build
 install /usr/share/automake/config.* .
@@ -45,7 +49,7 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_mandir}/man1,%{_infodir}
 
 install src/MAKEFLOPPIES  $RPM_BUILD_ROOT%{_bindir}
 install src/convertfdprm  $RPM_BUILD_ROOT%{_bindir}
-install src/diskd         $RPM_BUILD_ROOT%{_bindir}
+install src/fddiskd       $RPM_BUILD_ROOT%{_bindir}
 install src/diskseekd     $RPM_BUILD_ROOT%{_bindir}
 install src/fdmount       $RPM_BUILD_ROOT%{_bindir}
 install src/fdrawcmd      $RPM_BUILD_ROOT%{_bindir}
@@ -73,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/README doc/floppy_formats Changelog CREDITS doc/FAQ.html
-%config %{_sysconfdir}/mediaprm
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mediaprm
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*.info*
