@@ -4,7 +4,7 @@ Summary(zh_CN):	»Ì≈Ã«˝∂Øµ˜ ‘∫Õ≈‰÷√π§æﬂ
 Summary(zh_TW):	[.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
 Name:		fdutils
 Version:	5.4
-Release:	9
+Release:	10
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
