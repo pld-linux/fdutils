@@ -33,6 +33,7 @@ dysków. Dyskietki mog± byæ formatowane do 1992KB.
 %patch2 -p1
 
 %build
+install /usr/share/automake/config.* .
 aclocal
 %{__autoconf}
 %configure
