@@ -1,0 +1,14 @@
+This patch just stops "make install" from installing the manpages for
+the two programs which are not installed by default.
+
+--- fdutils-5.2/doc/Makefile.in.orig	Fri Aug 29 13:36:47 1997
++++ fdutils-5.2/doc/Makefile.in	Fri Aug 29 13:37:18 1997
+@@ -18,7 +18,7 @@
+ mandir4     = $(mandir)/man4
+ mandir8     = $(mandir)/man8
+ 
+-MANPAGES1   =  diskd.1 fdrawcmd.1 getfdprm.1 superformat.1 diskseekd.1 \
++MANPAGES1   =  fdrawcmd.1 getfdprm.1 superformat.1 \
+                floppycontrol.1 makefloppies.1 xdfcopy.1 fdmount.1 \
+                floppymeter.1 setfdprm.1
+ 
