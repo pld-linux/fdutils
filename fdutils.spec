@@ -8,6 +8,7 @@ Release:	8
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
+# Source0-md5:	17c1df04b1e524078ee52825a5ef5e56
 Patch0:		%{name}-manpages.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-ac25x.patch
