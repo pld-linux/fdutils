@@ -2,14 +2,13 @@ Summary:	Floppy utilities
 Summary(pl):	Narzêdzia do dyskietek
 Name:		fdutils
 Version:	5.4
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
 Patch0:		%{name}-manpages.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-ac25x.patch
-ExclusiveArch:	%{ix86}
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
