@@ -1,5 +1,6 @@
 Summary:	Floppy utilities
 Summary(pl):	Narz阣zia do dyskietek
+Summary(zh_CN):	软盘驱动调试和配置工具
 Name:		fdutils
 Version:	5.4
 Release:	3
@@ -59,8 +60,6 @@ install doc/fdutils.info* $RPM_BUILD_ROOT%{_infodir}
 install doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1/
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/setfdprm.1
 
-gzip -9nf doc/README doc/floppy_formats Changelog CREDITS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -72,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*gz doc/FAQ.html
+%doc doc/README doc/floppy_formats Changelog CREDITS doc/FAQ.html
 %config %{_sysconfdir}/mediaprm
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
