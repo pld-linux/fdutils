@@ -1,14 +1,17 @@
 Summary:	Floppy utilities
+Summary(pl):	Narzêdzia do dyskietek
 Name:		fdutils
 Version:	5.3
-Release:	1
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Release:	2
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 License:	GPL
-Vendor:		PLD
 URL:		http://fdutils.linux.lu
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
-BuildArch:	i386
+ExclusiveArch:	%{ix86}
+BuildRequires:	flex
+BuildRequires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -19,42 +22,47 @@ Floppies can be formatted up to 1992KB.
 Narzêdzia do formatowania dyskietek oraz do konfiguracji stacji
 dysków. Dyskietki mog± byæ formatowane do 1992KB.
 
-
 %prep
 %setup -q
+
 %build
-./configure --prefix=%{_prefix}
+%configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_%{bindir},%{_mandir}/man{1,4}}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_infodir}}
 
-install -s src/MAKEFLOPPIES  $RPM_BUILD_ROOT%{_bindir} 
-install -s src/convertfdprm  $RPM_BUILD_ROOT%{_bindir}
-install -s src/diskd         $RPM_BUILD_ROOT%{_bindir}
-install -s src/diskseekd     $RPM_BUILD_ROOT%{_bindir}
-install -s src/fdmount       $RPM_BUILD_ROOT%{_bindir}
-install -s src/fdrawcmd      $RPM_BUILD_ROOT%{_bindir}
-install -s src/floppycontrol $RPM_BUILD_ROOT%{_bindir}
-install -s src/floppymeter   $RPM_BUILD_ROOT%{_bindir}
-install -s src/getfdprm      $RPM_BUILD_ROOT%{_bindir}
-install -s src/setfdprm      $RPM_BUILD_ROOT%{_bindir} 
-install -s src/superformat   $RPM_BUILD_ROOT%{_bindir}
-install -s src/xdfcopy       $RPM_BUILD_ROOT%{_bindir}
+install src/MAKEFLOPPIES  $RPM_BUILD_ROOT%{_bindir} 
+install src/convertfdprm  $RPM_BUILD_ROOT%{_bindir}
+install src/diskd         $RPM_BUILD_ROOT%{_bindir}
+install src/diskseekd     $RPM_BUILD_ROOT%{_bindir}
+install src/fdmount       $RPM_BUILD_ROOT%{_bindir}
+install src/fdrawcmd      $RPM_BUILD_ROOT%{_bindir}
+install src/floppycontrol $RPM_BUILD_ROOT%{_bindir}
+install src/floppymeter   $RPM_BUILD_ROOT%{_bindir}
+install src/getfdprm      $RPM_BUILD_ROOT%{_bindir}
+install src/superformat   $RPM_BUILD_ROOT%{_bindir}
+install src/xdfcopy       $RPM_BUILD_ROOT%{_bindir}
 
+install doc/fdutils.info* $RPM_BUILD_ROOT%{_infodir}
 install doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1/
-install doc/*.4 $RPM_BUILD_ROOT%{_mandir}/man4/
+rm -f $RPM_BUILD_ROOT%{_mandir}/man1/setfdprm.1
            
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*
-	doc/FAQ.html doc/README Changelog CREDITS
+gzip -9nf doc/README doc/floppy_formats Changelog CREDITS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
+%postun
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*gz
+%doc *.gz doc/*gz doc/FAQ.html
 %attr(755,root,root) %{_bindir}/*
-%attr(644,root,root) %{_datadir}/doc/%{name}-%{version}/*
-%{_mandir}/man*/*
+%{_mandir}/man1/*
+%{_infodir}/*.info*
