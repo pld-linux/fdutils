@@ -10,7 +10,10 @@ Group(pl):	Aplikacje/System
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
 Patch0:		%{name}-manpages.patch
 Patch1:		%{name}-info.patch
+Patch2:		%{name}-ac25x.patch
 ExclusiveArch:	%{ix86}
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	tetex
 BuildRequires:	texinfo
@@ -29,9 +32,12 @@ dysków. Dyskietki mog± byæ formatowane do 1992KB.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
-%configure2_13
+aclocal
+autoconf
+%configure
 %{__make}
 
 %install
