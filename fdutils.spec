@@ -34,7 +34,7 @@ dysków. Dyskietki mog± byæ formatowane do 1992KB.
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
