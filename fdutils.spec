@@ -42,7 +42,7 @@ autoconf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_mandir}/man1,%{_infodir}}
 
-install src/MAKEFLOPPIES  $RPM_BUILD_ROOT%{_bindir} 
+install src/MAKEFLOPPIES  $RPM_BUILD_ROOT%{_bindir}
 install src/convertfdprm  $RPM_BUILD_ROOT%{_bindir}
 install src/diskd         $RPM_BUILD_ROOT%{_bindir}
 install src/diskseekd     $RPM_BUILD_ROOT%{_bindir}
@@ -59,7 +59,7 @@ install src/mediaprm $RPM_BUILD_ROOT%{_sysconfdir}
 install doc/fdutils.info* $RPM_BUILD_ROOT%{_infodir}
 install doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1/
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/setfdprm.1
-           
+
 gzip -9nf doc/README doc/floppy_formats Changelog CREDITS
 
 %clean
