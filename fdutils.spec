@@ -1,21 +1,22 @@
 Summary:	Floppy utilities
 Summary(pl):	NarzÍdzia do dyskietek
 Summary(zh_CN):	»Ì≈Ã«˝∂Øµ˜ ‘∫Õ≈‰÷√π§æﬂ
+Summary(zh_TW):	[.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
 Name:		fdutils
 Version:	5.4
-Release:	4
-License:	GPL
+Release:	8
+License:	GPL v2
 Group:		Applications/System
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
 Patch0:		%{name}-manpages.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-ac25x.patch
 Patch3:		%{name}-diskd-conflict.patch
+Patch4:		%{name}-nodvi.patch
 URL:		http://fdutils.linux.lu/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	tetex
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,6 +36,7 @@ dyskÛw. Dyskietki mog± byÊ formatowane do 1992KB.
 %patch3 -p1
 mv -f doc/{,fd}diskd.texi
 mv -f doc/{,fd}diskd.1
+%patch4 -p1
 
 %build
 install /usr/share/automake/config.* .
