@@ -1,7 +1,7 @@
 Summary:	Floppy utilities
-Summary(pl):	Narzêdzia do dyskietek
-Summary(zh_CN):	ÈíÅÌÇı¶¯µ÷ÊÔºÍÅäÖÃ¹¤¾ß
-Summary(zh_TW):	[.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
+Summary(pl.UTF-8):   NarzÄ™dzia do dyskietek
+Summary(zh_CN.UTF-8):   è½¯ç›˜é©±åŠ¨è°ƒè¯•å’Œé…ç½®å·¥å…·
+Summary(zh_TW.UTF-8):   [.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
 Name:		fdutils
 Version:	5.4
 Release:	10
@@ -25,9 +25,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Utilities for formatting floppies and configuring floppy drive.
 Floppies can be formatted up to 1992KB.
 
-%description -l pl
-Narzêdzia do formatowania dyskietek oraz do konfiguracji stacji
-dysków. Dyskietki mog± byæ formatowane do 1992KB.
+%description -l pl.UTF-8
+NarzÄ™dzia do formatowania dyskietek oraz do konfiguracji stacji
+dyskÃ³w. Dyskietki mogÄ… byÄ‡ formatowane do 1992KB.
 
 %prep
 %setup -q
