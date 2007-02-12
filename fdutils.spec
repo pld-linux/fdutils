@@ -1,7 +1,7 @@
 Summary:	Floppy utilities
-Summary(pl.UTF-8):   Narzędzia do dyskietek
-Summary(zh_CN.UTF-8):   软盘驱动调试和配置工具
-Summary(zh_TW.UTF-8):   [.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
+Summary(pl.UTF-8):	Narzędzia do dyskietek
+Summary(zh_CN.UTF-8):	软盘驱动调试和配置工具
+Summary(zh_TW.UTF-8):	[.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
 Name:		fdutils
 Version:	5.4
 Release:	10
