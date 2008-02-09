@@ -1,7 +1,6 @@
 Summary:	Floppy utilities
 Summary(pl.UTF-8):	Narzędzia do dyskietek
 Summary(zh_CN.UTF-8):	软盘驱动调试和配置工具
-Summary(zh_TW.UTF-8):	[.AN(t$B2N(B]LinuxN$U$B(O%NN3(BnN=L$B*:N$(Bu$B(c*B(B
 Name:		fdutils
 Version:	5.4
 Release:	10
@@ -25,9 +24,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Utilities for formatting floppies and configuring floppy drive.
 Floppies can be formatted up to 1992KB.
 
+Note: the fdutils are meant to control a legacy (FDC-based) floppy
+drive. They won't work with other types of floppy drives (such as
+LS-120, USB floppy drives). For USB floppy drives use ufiformat
+package to format a floppy.
+
 %description -l pl.UTF-8
 Narzędzia do formatowania dyskietek oraz do konfiguracji stacji
 dysków. Dyskietki mogą być formatowane do 1992KB.
+
+Uwaga: fdutils są przeznaczone do sterowania tradycyjnymi stacjami
+dyskietek (opartymi na FDC). Nie będą działać z innymi rodzajami
+stacji, takimi jak LS-120 czy podłączane przez USB. Do formatowania
+dyskietek w stacjach podłączanych przez USB służy pakiet ufiformat.
 
 %prep
 %setup -q
