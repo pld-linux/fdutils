@@ -4,7 +4,7 @@ Summary(zh_CN.UTF-8):	软盘驱动调试和配置工具
 Name:		fdutils
 Version:	5.5
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Applications/System
 #Source0Download: http://fdutils.linux.lu/download.html
 Source0:	http://fdutils.linux.lu/%{name}-%{version}.tar.gz
