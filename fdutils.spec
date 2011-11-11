@@ -14,6 +14,7 @@ Patch1:		%{name}-DESTDIR.patch
 Patch2:		%{name}-diskd-conflict.patch
 Patch3:		%{name}-nodvi.patch
 Patch4:		http://fdutils.linux.lu/fdutils-5.5-20060227.diff.gz
+# Patch4-md5:	e13410bc193053eee2cab4b837407865
 URL:		http://fdutils.linux.lu/
 BuildRequires:	autoconf
 BuildRequires:	automake
